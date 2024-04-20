@@ -2,19 +2,25 @@
 body {
     margin: 0;
     font-family: Lato, sans-serif;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .container {
     width: 100%;
-    max-width: 360px;
     margin: 0 auto;
 }
-/* Header styles */
 
+/* Header styles */
 header {
-    background-color: white;
+    background-color: transparent; /* Add this line */
     max-width: 90%;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
     width: 100%;
     display: flex;
@@ -30,6 +36,11 @@ header {
     margin-right: auto;
 }
 
+header a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .logo, nav a {
     color: #111111;
     font-weight: 500;
@@ -39,35 +50,293 @@ header {
 a {
     text-decoration: none;
     color: black;
+    flex-shrink: 0;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+}
+
+/* Main styles */
+
+main {
+    max-width: 100%;
+    padding: 16vh 0 8vh 0;
+}
+
+main p{
+    font-size: 1.125rem;
+    line-height: 160%;
+    max-width: 100%;
+    margin: 0 20px;
+    padding: 10vw 0 12vw 0;
+}
+
+
+h1 { 
+    font-size: 3rem;
+    line-height: 120%;
+    max-width: 100%;
+    margin: 0 20px 50px 20px;
+}
+
+.cv {
+    text-decoration: underline;
+}
+
+/* Card Styles */
+
+article {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation-delay: .8s;
+}
+
+article h3{
+	color: #111111;
+    font-family: 'Geist';
+	font-weight: 400;
+    font-size: 1.125rem;
+	line-height: 160%;
+    margin: auto;
+    padding-bottom: 25px;
+}
+
+.card {
+	width: 100%;
+	text-align: center;
+	box-sizing: border-box;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+
+figure {
+	border-radius: 24px;
+	overflow: hidden;
+	height: 480px;
+	transition: all .8s cubic-bezier(0.2, 0.6, 0.2, 1);
+    position: relative; 
+}
+
+figure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .8s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.pink-tint::after {
+    background: rgba(255, 105, 180, 0.15); /* Pink color */
+}
+
+.silver-tint::after {
+    background: rgba(192, 192, 192, 0.1); /* Silver color */
+}
+
+.sepia-tint::after {
+    background: rgba(255, 215, 0, 0.05); /* Gold color */
+}
+
+figure:hover::after {
+    opacity: 1;
+}
+
+figure:hover {
+	transform: scale(.95);
+	transition: all .8s cubic-bezier(0.2, 0.6, 0.2, 1);
+	cursor: pointer;
+}
+
+.card img {
+	display: block;
+	width: 100%;
+	height: 100%;
+ 	object-fit: cover;
+	transition: all .8s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.card:hover img {
+	transform: scale(1.1);
+	transition: all .8s cubic-bezier(0.2, 0.6, 0.2, 1);
+	cursor: pointer;
+}
+.card-info {
+	text-align: center;
+	margin-top: 12px;
+
+}
+
+.card-name {
+	color: #111111;
+    font-family: 'Geist';
+	font-weight: 500;
+    font-size: 1.125rem;
+	line-height: 160%;
+	display: block;
+	text-decoration: none;
+}
+
+.card-description {
+	color: #666666;
+    font-family: 'Geist';
+    font-size: 1rem;
+    font-weight: 400;
+	display: block;
+	text-decoration: none;
+}
+
+/* Contact */
+
+.contact-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+
+}
+
+.contact-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #111111;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: auto;
+}
+
+.contact-link:hover {
+    background-color: #444444;
+    transform: scale(1.1);
+}
+
+/* Footer */
+
+footer {
+    background-color: transparent;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 767px) {
+
+	.card  {
+        width: calc(50% - 60px);
+		margin-bottom: 100px;
+	}
+	.card:nth-child(2n-2) {
+		top: 0;
+	}
+	.figure {
+	height: 640px;	
+	}
+	.card-info {
+	margin-top: 24px;
+	}
+	.card-name {
+	font-size: 1.375rem;
+	}
+	.card-description {
+        font-size: 1.125rem;
+        font-weight: 300;
+	}
+  }
+
+
+/* # Animation # */
+
+.slide{
+    -webkit-animation: slide .6s cubic-bezier(0.2, 0.6, 0.2, 1);
+    -moz-animation: slide .6s cubic-bezier(0.2, 0.6, 0.2, 1);
+    animation: slide .6s cubic-bezier(0.2, 0.6, 0.2, 1);
+    animation-delay: 0s;
+    animation-fill-mode: none;
+    -webkit-animation-fill-mode: backwards;
+    -moz-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+} 
+
+/*  Delays  */
+.delay01 { -webkit-animation-delay: .4s; animation-delay: .4s;}
+.delay02 { -webkit-animation-delay: .8s; animation-delay: .8s;}
+.delay03 { -webkit-animation-delay: .9s; animation-delay: .9s;}
+
+
+@-webkit-keyframes slide {
+	0% {
+    opacity: 0;
+    -webkit-transform: translateY(10vh);
+  }
+	100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }	
+}
+
+@keyframes slide {
+	0% {
+    opacity: 0;
+    -webkit-transform: translateY(10vh);
+  }
+	100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }	
 }
 
 /* Responsive styles */
-@media (max-width: 767px) {
+@media (min-width: 480px) {
     .container {
-        max-width: 600px;
+        max-width: 500px;
     }
     header {
         padding: 20px 0;
     }
-    .logo, nav a {
-        font-size: 1.125rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 20px ;
-    }
-    .logo, nav a {
-        font-size: 1rem;
-    }
     
+    nav {
+        gap: 15px;
+    }
 }
 
+@media (min-width: 767px) {
+    header {
+        padding: 20px 0;
+    }
+    .logo, nav a {
+        font-size: 1.375rem;
+    }
+
+    .card:nth-child(2n-2) {
+        position: relative;
+        top: 200px;
+        top: 300px; /* CHANGE THIS for V2 */
+    }
+    h1{
+        font-size: 4.6vw;
+        font-size: 4.5rem;
+        line-height: 120%;
+        font-weight: 600;
+        color: #111111;
+    }
+
+    nav {
+        gap: 20px;
+    }
+}
