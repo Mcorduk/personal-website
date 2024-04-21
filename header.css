@@ -1,0 +1,72 @@
+/* Header styles */
+header {
+    background-color: transparent; /* Add this line */
+    max-width: 90%;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+}
+
+header a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.logo, nav a {
+    color: #111111;
+    font-weight: 500;
+    font-size: 1.375rem;
+    text-shadow: 1px 1px  rgba(255, 255, 255, 1);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Header Responsive styles */
+
+@media (min-width: 767px) {
+    header {
+        padding: 20px 0;
+    }
+
+    .logo, nav a {
+        font-size: 1.375rem;
+    }
+
+    .card:nth-child(2n-2) {
+        position: relative;
+        top: 200px;
+        top: 300px; /* CHANGE THIS for V2 */
+    }
+
+    h1{
+        font-size: 4.6vw;
+        font-size: 4.5rem;
+        line-height: 120%;
+        font-weight: 600;
+        color: #111111;
+    }
+
+    nav {
+        gap: 20px;
+    }
+}
